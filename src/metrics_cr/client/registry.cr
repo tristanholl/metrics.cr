@@ -5,7 +5,7 @@ module MetricsCr
 
       def initialize
         @metrics = {} of String => Metric
-        # @mutex = Mutex.new
+        @mutex = Mutex.new
       end
 
       def count
@@ -21,13 +21,17 @@ module MetricsCr
       end
 
       def register(metric : Metric)
-        raise(AlreadyRegisteredError.new) if @metrics.has_key?(metric.name)
+        @mutex.synchronize do
+          raise(AlreadyRegisteredError.new) if @metrics.has_key?(metric.name)
 
-        @metrics[metric.name] = metric
+          @metrics[metric.name] = metric
+        end
       end
 
       def unregister(name : String)
-        @metrics.delete(name)
+        @mutex.synchronize do
+          @metrics.delete(name)
+        end
       end
     end
   end
