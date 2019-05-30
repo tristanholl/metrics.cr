@@ -1,6 +1,6 @@
 # metrics.cr
 
-https://travis-ci.com/tristanholl/metrics.cr.svg?token=YMnho6ejY9nP76s1KvYg&branch=master
+[![Build Status](https://travis-ci.com/tristanholl/metrics.cr.svg?token=YMnho6ejY9nP76s1KvYg&branch=master)](https://travis-ci.com/tristanholl/metrics.cr)
 
 TODO: Write a description here
 
