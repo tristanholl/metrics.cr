@@ -1,0 +1,9 @@
+name: metrics.cr
+version: 0.1.0
+
+authors:
+  - Tristan Holl <mail@tristanholl.com>
+
+crystal: 0.28.0
+
+license: MIT
