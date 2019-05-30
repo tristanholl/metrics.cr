@@ -1,10 +1,17 @@
 require "../spec_helper"
 
+def setup_specs
+  registry = MetricsCr::Client::Registry.new
+  counter = MetricsCr::Client::Counter.new("CounterName")
+
+  return registry, counter
+end
+
 describe MetricsCr::Client::Registry do
   describe "#initialize" do
     it "creates an empty repository" do
       # Given
-      registry = MetricsCr::Client::Registry.new
+      registry, counter = setup_specs
 
       # Then
       registry.count.should eq(0)
@@ -14,8 +21,7 @@ describe MetricsCr::Client::Registry do
   describe "#count" do
     it "returns number if metrics registered" do
       # Given
-      registry = MetricsCr::Client::Registry.new
-      counter = MetricsCr::Client::Counter.new("CounterName")
+      registry, counter = setup_specs
       counter2 = MetricsCr::Client::Counter.new("CounterName2")
 
       # When
@@ -30,8 +36,7 @@ describe MetricsCr::Client::Registry do
   describe "#exists?" do
     it "returns true if metric is registered" do
       # Given
-      registry = MetricsCr::Client::Registry.new
-      counter = MetricsCr::Client::Counter.new("CounterName")
+      registry, counter = setup_specs
 
       # When
       registry.register(counter)
@@ -52,8 +57,7 @@ describe MetricsCr::Client::Registry do
   describe "#get" do
     it "returns single metric" do
       # Given
-      registry = MetricsCr::Client::Registry.new
-      counter = MetricsCr::Client::Counter.new("CounterName")
+      registry, counter = setup_specs
 
       # When
       registry.register(counter)
@@ -66,8 +70,7 @@ describe MetricsCr::Client::Registry do
   describe "#register" do
     it "successfully registers metric" do
       # Given
-      registry = MetricsCr::Client::Registry.new
-      counter = MetricsCr::Client::Counter.new("CounterName")
+      registry, counter = setup_specs
 
       # When
       registry.register(counter)
@@ -79,8 +82,7 @@ describe MetricsCr::Client::Registry do
 
     it "fails on registering a duplicate" do
       # Given
-      registry = MetricsCr::Client::Registry.new
-      counter = MetricsCr::Client::Counter.new("CounterName")
+      registry, counter = setup_specs
 
       # Then
       expect_raises(MetricsCr::Client::Registry::AlreadyRegisteredError) do
@@ -94,8 +96,7 @@ describe MetricsCr::Client::Registry do
   describe "#unregister" do
     it "successfully unregisters a metric" do
       # Given
-      registry = MetricsCr::Client::Registry.new
-      counter = MetricsCr::Client::Counter.new("CounterName")
+      registry, counter = setup_specs
       registry.register(counter)
 
       # When
