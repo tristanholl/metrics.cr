@@ -4,13 +4,10 @@ module MetricsCr
   module Client
     class Counter < Metric
       @value = 0_u64
-
-      def get
-        @value
-      end
+      property value
 
       # Increments the counter by
-      def increase(by : UInt64)
+      def inc(by : UInt64)
         @value += by
       end
     end
