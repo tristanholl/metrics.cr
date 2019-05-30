@@ -1,4 +1,3 @@
-
 module MetricsCr
   module Client
     class Counter < Metric
