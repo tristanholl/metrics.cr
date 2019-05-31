@@ -17,10 +17,10 @@ module MetricsCr
       end
 
       def observe(value : Float64) : Nil
-        bucket = @buckets.find { |upper_limit| upper_limit > value }
-        bucket = "+Inf" if bucket.nil?
+        @value[
+          (@buckets.find { |upper_limit| upper_limit > value } || "+Inf").to_s,
+        ] += 1
 
-        @value[bucket.to_s] += 1
         @value["sum"] += value
       end
     end
