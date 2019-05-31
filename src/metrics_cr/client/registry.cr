@@ -1,3 +1,5 @@
+require "../metric"
+
 module MetricsCr
   module Client
     class Registry

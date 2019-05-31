@@ -1,8 +1,10 @@
-require "../spec_helper"
+require "spec"
+require "../../src/metrics_cr/client/registry"
+require "../../src/metrics_cr/metrics/counter"
 
 def setup_specs
   registry = MetricsCr::Client::Registry.new
-  counter = MetricsCr::Client::Counter.new("CounterName")
+  counter = MetricsCr::Metrics::Counter.new(name: "CounterName")
 
   return registry, counter
 end
@@ -22,7 +24,7 @@ describe MetricsCr::Client::Registry do
     it "returns number if metrics registered" do
       # Given
       registry, counter = setup_specs
-      counter2 = MetricsCr::Client::Counter.new("CounterName2")
+      counter2 = MetricsCr::Metrics::Counter.new("CounterName2")
 
       # When
       registry.register(counter)
