@@ -1,6 +1,5 @@
 require "spec"
-require "../../src/metrics_cr/client/registry"
-require "../../src/metrics_cr/metrics/counter"
+require "../spec_helper"
 
 def setup_specs
   registry = MetricsCr::Client::Registry.new

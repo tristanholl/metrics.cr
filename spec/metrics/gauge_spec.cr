@@ -1,5 +1,5 @@
 require "spec"
-require "../../src/metrics_cr/metrics/gauge"
+require "../spec_helper"
 
 describe MetricsCr::Metrics::Gauge do
   describe "#initialize" do

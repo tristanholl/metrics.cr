@@ -1,5 +1,5 @@
 require "spec"
-require "../../src/metrics_cr/metrics/summary"
+require "../spec_helper"
 
 describe MetricsCr::Metrics::Summary do
   describe "#observe" do

@@ -1,5 +1,5 @@
 require "spec"
-require "../../src/metrics_cr/metrics/counter"
+require "../spec_helper"
 
 describe MetricsCr::Metrics::Counter do
   describe "#increment" do
