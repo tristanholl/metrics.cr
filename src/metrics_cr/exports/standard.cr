@@ -3,7 +3,7 @@ module MetricsCr
     module Standard
       extend self
 
-      def init(registry : MetricsCr::Client::Registry)
+      def register(registry : MetricsCr::Client::Registry)
         tms = Process.times
         gc_stats = GC.stats
 
