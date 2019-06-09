@@ -1,7 +1,15 @@
 require "spec"
-require "../../src/metrics_cr/metrics/gauge"
+require "../spec_helper"
 
 describe MetricsCr::Metrics::Gauge do
+  describe "#initialize" do
+    it "initializes with value" do
+      gauge = MetricsCr::Metrics::Gauge.new(name: "test", value: 5.5)
+
+      gauge.value.should eq(5.5)
+    end
+  end
+
   describe "#decrement" do
     it "decrements by the value provided" do
       gauge = MetricsCr::Metrics::Gauge.new(name: "test")

@@ -5,6 +5,9 @@ module MetricsCr
     class Gauge < Metric
       property value : Float64 = 0
 
+      def initialize(@name : String, @value : Float64 = 0)
+      end
+
       # Decrements the gauge by provided value.
       #
       # ```

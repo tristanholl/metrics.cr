@@ -1,5 +1,5 @@
 require "spec"
-require "../../src/metrics_cr/metrics/histogram"
+require "../spec_helper"
 
 describe MetricsCr::Metrics::Histogram do
   describe "#initiate" do
