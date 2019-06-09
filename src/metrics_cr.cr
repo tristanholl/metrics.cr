@@ -3,7 +3,7 @@ require "./metrics_cr/client/*"
 require "./metrics_cr/metrics/*"
 
 lib LibC
-  fun getpagesize() : Int
+  fun getpagesize : Int
 end
 
 # MetricsCr is a [Prometheus](https://prometheus.io/) client library
